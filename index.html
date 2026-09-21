@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeGuard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- AUTH SCREEN -->
+    <section id="authScreen" class="auth-screen">
+
+        <!-- REGISTER -->
+        <div id="registerForm" class="auth-box">
+            <div class="auth-logo">🛡️</div>
+            <h1>Create Account</h1>
+            <p>Start managing your project with CodeGuard</p>
+
+            <input type="text" id="registerUsername" placeholder="Enter username">
+            <input type="password" id="registerPassword" placeholder="Create password">
+            <input type="password" id="confirmPassword" placeholder="Confirm password">
+
+            <button id="registerBtn">Create Account</button>
+
+            <p id="registerMessage" class="message"></p>
+
+            <div class="switch-text">
+                Already have an account?
+                <button id="showLoginBtn" class="link-btn">Login</button>
+            </div>
+        </div>
+
+        <!-- LOGIN -->
+        <div id="loginForm" class="auth-box hidden">
+            <div class="auth-logo">🛡️</div>
+            <h1>Welcome Back</h1>
+            <p>Login to continue to CodeGuard</p>
+
+            <input type="text" id="loginUsername" placeholder="Enter username">
+            <input type="password" id="loginPassword" placeholder="Enter password">
+
+            <button id="loginBtn">Login</button>
+
+            <p id="loginMessage" class="message"></p>
+
+            <div class="switch-text">
+                Don't have an account?
+                <button id="showRegisterBtn" class="link-btn">Create Account</button>
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- MAIN APPLICATION -->
+    <section id="mainApp" class="hidden">
+
+        <!-- HEADER -->
+        <header>
+            <div class="header-content">
+                <div>
+                    <h1>🛡️ CodeGuard</h1>
+                    <p>Smart Project Risk & Quality Management Platform</p>
+                </div>
+
+                <div class="user-area">
+                    <span id="welcomeUser"></span>
+                    <button id="logoutBtn">Logout</button>
+                </div>
+            </div>
+        </header>
+
+
+        <!-- NAVIGATION -->
+        <nav>
+            <a href="#overview">Overview</a>
+            <a href="#tasks">Tasks</a>
+            <a href="#bugs">Bugs</a>
+            <a href="#dashboard">Dashboard</a>
+            <a href="#health">Health</a>
+        </nav>
+
+
+        <main>
+
+            <!-- HERO -->
+            <section class="hero">
+                <div class="hero-content">
+                    <span class="hero-badge">PROJECT QUALITY PLATFORM</span>
+
+                    <h2>Manage Your Project Smarter</h2>
+
+                    <p>
+                        Track tasks, monitor bugs and analyze project risk
+                        using CodeGuard.
+                    </p>
+
+                    <a href="#dashboard" class="hero-btn">
+                        View Dashboard
+                    </a>
+                </div>
+
+                <div class="hero-visual">
+                    <div class="shield">🛡️</div>
+
+                    <div class="floating-card card-one">
+                        ✓ Quality
+                    </div>
+
+                    <div class="floating-card card-two">
+                        ⚠ Risk Monitor
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- OVERVIEW -->
+            <section id="overview" class="section">
+
+                <div class="section-title">
+                    <span>01</span>
+                    <div>
+                        <h2>Project Overview</h2>
+                        <p>Monitor your project progress.</p>
+                    </div>
+                </div>
+
+                <div class="overview-grid">
+
+                    <div class="overview-card">
+                        <span>Project</span>
+                        <h3>CodeGuard</h3>
+                        <p>Smart Project Management</p>
+                    </div>
+
+                    <div class="overview-card">
+                        <span>Progress</span>
+                        <h3 id="progressText">40%</h3>
+                        <div class="progress">
+                            <div id="progressBar"></div>
+                        </div>
+                    </div>
+
+                    <div class="overview-card">
+                        <span>Focus</span>
+                        <h3>Quality Management</h3>
+                        <p>Tasks • Bugs • Risk</p>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- TASKS -->
+            <section id="tasks" class="section">
+
+                <div class="section-title">
+                    <span>02</span>
+                    <div>
+                        <h2>Tasks</h2>
+                        <p>Add and manage project tasks.</p>
+                    </div>
+                </div>
+
+                <!-- ADD TASK -->
+                <div class="input-card">
+
+                    <h3>➕ Add New Task</h3>
+
+                    <div class="form-grid">
+
+                        <input
+                            type="text"
+                            id="taskName"
+                            placeholder="Enter task name"
+                        >
+
+                        <select id="taskStatus">
+                            <option value="Pending">Pending</option>
+                            <option value="In Progress">In Progress</option>
+                            <option value="Completed">Completed</option>
+                        </select>
+
+                    </div>
+
+                    <button id="addTaskBtn" class="primary-btn">
+                        Add Task
+                    </button>
+
+                    <p id="taskMessage" class="message"></p>
+
+                </div>
+
+
+                <!-- TASK LIST -->
+                <div class="list-card">
+
+                    <div class="list-header">
+                        <h3>📋 Project Tasks</h3>
+                        <span id="taskCount">3 Tasks</span>
+                    </div>
+
+                    <ul id="taskList">
+
+                        <li data-status="Completed">
+                            <div>
+                                <strong>Design Homepage</strong>
+                                <small>Project UI design</small>
+                            </div>
+                            <span class="badge completed">
+                                Completed
+                            </span>
+                        </li>
+
+                        <li data-status="In Progress">
+                            <div>
+                                <strong>Develop Login Page</strong>
+                                <small>Authentication interface</small>
+                            </div>
+                            <span class="badge progress-badge">
+                                In Progress
+                            </span>
+                        </li>
+
+                        <li data-status="Pending">
+                            <div>
+                                <strong>Test Application</strong>
+                                <small>Application testing</small>
+                            </div>
+                            <span class="badge pending">
+                                Pending
+                            </span>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </section>
+
+
+            <!-- BUGS -->
+            <section id="bugs" class="section">
+
+                <div class="section-title">
+                    <span>03</span>
+                    <div>
+                        <h2>Bugs</h2>
+                        <p>Track and analyze project issues.</p>
+                    </div>
+                </div>
+
+
+                <!-- ADD BUG -->
+                <div class="input-card">
+
+                    <h3>➕ Report New Bug</h3>
+
+                    <div class="form-grid">
+
+                        <input
+                            type="text"
+                            id="bugTitle"
+                            placeholder="Enter bug title"
+                        >
+
+                        <select id="bugSeverity">
+
+                            <option value="Low">
+                                Low
+                            </option>
+
+                            <option value="Medium">
+                                Medium
+                            </option>
+
+                            <option value="Critical">
+                                Critical
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                    <button id="addBugBtn" class="primary-btn">
+                        Add Bug
+                    </button>
+
+                    <p id="bugMessage" class="message"></p>
+
+                </div>
+
+
+                <!-- BUG LIST -->
+                <div class="list-card">
+
+                    <div class="list-header">
+                        <h3>🐞 Reported Bugs</h3>
+                        <span id="bugCount">3 Bugs</span>
+                    </div>
+
+                    <ul id="bugList">
+
+                        <li data-severity="Critical">
+                            <div>
+                                <strong>Login Error</strong>
+                                <small>Authentication issue</small>
+                            </div>
+
+                            <span class="badge critical">
+                                Critical
+                            </span>
+                        </li>
+
+                        <li data-severity="Medium">
+                            <div>
+                                <strong>Page Loading Issue</strong>
+                                <small>Slow page response</small>
+                            </div>
+
+                            <span class="badge medium">
+                                Medium
+                            </span>
+                        </li>
+
+                        <li data-severity="Low">
+                            <div>
+                                <strong>Button Not Working</strong>
+                                <small>Minor UI issue</small>
+                            </div>
+
+                            <span class="badge low">
+                                Low
+                            </span>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </section>
+
+
+            <!-- DASHBOARD -->
+            <section id="dashboard" class="section">
+
+                <div class="section-title">
+                    <span>04</span>
+                    <div>
+                        <h2>Dashboard</h2>
+                        <p>Quick project statistics.</p>
+                    </div>
+                </div>
+
+                <div class="dashboard-grid">
+
+                    <div class="dashboard-card">
+                        <span>📋</span>
+                        <h3 id="totalTasks">3</h3>
+                        <p>Total Tasks</p>
+                    </div>
+
+                    <div class="dashboard-card">
+                        <span>🐞</span>
+                        <h3 id="totalBugs">3</h3>
+                        <p>Total Bugs</p>
+                    </div>
+
+                    <div class="dashboard-card">
+                        <span>⚠️</span>
+                        <h3 id="riskValue">High</h3>
+                        <p>Project Risk</p>
+                    </div>
+
+                    <div class="dashboard-card">
+                        <span>👥</span>
+                        <h3>High</h3>
+                        <p>Team Workload</p>
+                    </div>
+
+                    <div class="dashboard-card">
+                        <span>📅</span>
+                        <h3>Low</h3>
+                        <p>Deadline Risk</p>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- HEALTH -->
+            <section id="health" class="section">
+
+                <div class="section-title">
+                    <span>05</span>
+                    <div>
+                        <h2>Project Health</h2>
+                        <p>Analyze the current project risk.</p>
+                    </div>
+                </div>
+
+                <div class="health-card">
+
+                    <div class="health-icon" id="healthIcon">
+                        🟢
+                    </div>
+
+                    <div class="health-content">
+
+                        <span>Overall Project Health</span>
+
+                        <h2 id="healthStatus">
+                            Needs Attention
+                        </h2>
+
+                        <p id="riskMessage">
+                            Critical issues detected in the project.
+                        </p>
+
+                        <button id="analyzeBtn" class="primary-btn">
+                            Analyze Project Risk
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+
+        <!-- FOOTER -->
+        <footer>
+            <p>© 2026 CodeGuard | Smart Project Risk & Quality Management</p>
+        </footer>
+
+    </section>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
