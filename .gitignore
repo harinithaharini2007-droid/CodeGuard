@@ -1,0 +1,3 @@
+backend/codeguard.db
+__pycache__/
+*.pyc
